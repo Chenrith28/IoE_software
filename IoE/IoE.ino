@@ -30,6 +30,9 @@ char Time[32], Date[32];  // For store the date and time.
 #define ioe_r 5
 #define ioe_g 7
 #define ioe_b 3
+#define buzzer 35
+#define fan 29
+#define System 23
 
 
 const int voltage_arduino = 5; // constant of arduino voltage.
@@ -49,6 +52,9 @@ void setup(){
   pinMode(ioe_r,OUTPUT);
   pinMode(ioe_g,OUTPUT);
   pinMode(ioe_b,OUTPUT);
+  pinMode(buzzer,OUTPUT);
+  pinMode(fan,OUTPUT);
+  pinMode(System,OUTPUT);
 
 }
 
@@ -75,4 +81,16 @@ void RGB_IoE(int r, int g, int b){
   analogWrite(ioe_r, r);
   analogWrite(ioe_g, g);
   analogWrite(ioe_b, b);
+}
+void serialCommunication(){
+  Serial.print(Temp.data[0]);
+  Serial.print("a");
+  Serial.print(Temp.data[1]);
+  Serial.print("b");
+  Serial.print(Temp.data[2]);
+  Serial.print("c");
+  Serial.print(Temp.data[3]);
+  Serial.print("d");
+  Serial.print(Temp.data[4]);
+  Serial.println("e");
 }
