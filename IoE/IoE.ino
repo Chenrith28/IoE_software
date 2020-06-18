@@ -42,6 +42,14 @@ struct  Data{
 
 void setup(){
   Serial.begin(115200); //Start the serial baudrate with 115200
+  sd_card_initial();
+  pinMode(st_r,OUTPUT);
+  pinMode(st_b,OUTPUT);
+  pinMode(st_g,OUTPUT);
+  pinMode(ioe_r,OUTPUT);
+  pinMode(ioe_g,OUTPUT);
+  pinMode(ioe_b,OUTPUT);
+
 }
 
 void loop(){
@@ -51,6 +59,7 @@ void loop(){
   //Gas measurement 
   Gas.smoke = analogRead(gas);
   DC_data();
+  RTC_initial();
   
 }
 
