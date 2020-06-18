@@ -6,6 +6,18 @@
  *  I put nearly all the comment of all the code in the Readme file.
  */
 
+/*
+ * The librarires
+ * The time and sd card library
+ */
+#include <Wire.h>  // Real time clock library 
+#include "RTClib.h"
+#include <SPI.h>  // SD card library
+#include <SD.h> 
+RTC_DS3231 rtc; // Initial the variable for RTC 
+File myFile;  //Name of the SD card file saving
+char Time[32], Date[32];  // For store the date and time.
+
 #define tem1 A0
 #define tem2 A1
 #define tem3 A2
@@ -34,7 +46,7 @@ void setup(){
 
 void loop(){
   Temperature();
-  
+  TIME();
   
   //Gas measurement 
   Gas.smoke = analogRead(gas);
