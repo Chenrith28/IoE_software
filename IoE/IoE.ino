@@ -35,10 +35,16 @@ void setup(){
 void loop(){
   Temperature();
   
+  
   //Gas measurement 
   Gas.smoke = analogRead(gas);
+  DC_data();
   
 }
+
+/*
+ * Initialize the RGB for the logo of Stablu and IoE
+ */
 void RGB_STABLU(int r, int g, int b){
   analogWrite(st_r, r);
   analogWrite(st_g, g);
@@ -48,5 +54,4 @@ void RGB_IoE(int r, int g, int b){
   analogWrite(ioe_r, r);
   analogWrite(ioe_g, g);
   analogWrite(ioe_b, b);
-  
 }
